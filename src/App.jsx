@@ -1,9 +1,9 @@
-import ReactState from "./components/ReactState"
+import ReactReducer from "./components/ReactReducer"
 
 function App() {
   return (
     <>
-      <ReactState />
+      <ReactReducer />
     </>
   )
 }
