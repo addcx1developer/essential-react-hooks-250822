@@ -7,9 +7,18 @@ export default function TodoComponent() {
   const handleAddTodo = () => {
     setTodoList((previousTodos) => [
       ...previousTodos,
-      todoInput
+      {
+        id: Math.random(),
+        text: todoInput
+      }
     ])
     setTodoInput("")
+  }
+
+  const handleDeleteTodo = (id) => {
+    setTodoList((previousTodos) => {
+      return previousTodos.filter((todo) => todo.id !== id)
+    })
   }
 
   return (
@@ -25,7 +34,10 @@ export default function TodoComponent() {
       </button>
       <ul>
         {todoList.map((todo) => (
-          <li key={todo}>{todo}</li>
+          <li key={todo.id}>
+            {todo.text}
+            <button onClick={() => handleDeleteTodo(todo.id)}>X</button>
+          </li>
         ))}
       </ul>
     </div>
