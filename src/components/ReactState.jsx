@@ -1,6 +1,12 @@
-let count = 0;
+import { useState } from "react"
+
+let count = 0
 
 export default function ReactState() {
+  const state = useState(0)
+
+  console.log({ state })
+
   const handleIncrement = () => {
     count += 1 // Increment the count variable
     console.log(count) // The console will show the updated value
